@@ -23,6 +23,7 @@ import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.edge.executionproperty.DataFlowProperty;
 import org.apache.nemo.common.ir.vertex.IRVertex;
 import org.apache.nemo.common.ir.vertex.executionproperty.ResourceSlotProperty;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
 
 /**
@@ -30,7 +31,7 @@ import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
  */
 @Annotates(ResourceSlotProperty.class)
 @Requires(DataFlowProperty.class)
-public final class LargeShuffleResourceSlotPass extends AnnotatingPass {
+public final class LargeShuffleResourceSlotPass extends CompileTimePass {
 
   /**
    * Default constructor.

@@ -30,9 +30,8 @@ import org.apache.nemo.common.ir.vertex.IRVertex;
 import org.apache.nemo.common.ir.vertex.executionproperty.ResourcePriorityProperty;
 import org.apache.nemo.common.ir.vertex.executionproperty.ParallelismProperty;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
-import org.apache.nemo.compiler.optimizer.pass.compiletime.annotating.AnnotatingPass;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.annotating.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.composite.CompositePass;
-import org.apache.nemo.compiler.optimizer.pass.compiletime.reshaping.ReshapingPass;
 import org.apache.nemo.runtime.common.optimizer.pass.runtime.RuntimePass;
 
 import java.util.*;
@@ -83,8 +82,8 @@ public final class PolicyBuilder {
     }
 
     // check annotation of annotating passes.
-    if (compileTimePass instanceof AnnotatingPass) {
-      final AnnotatingPass annotatingPass = (AnnotatingPass) compileTimePass;
+    if (compileTimePass instanceof CompileTimePass) {
+      final CompileTimePass annotatingPass = (CompileTimePass) compileTimePass;
       this.annotatedExecutionProperties.addAll(annotatingPass.getExecutionPropertiesToAnnotate());
     } else if (compileTimePass instanceof ReshapingPass) {
       final ReshapingPass reshapingPass = (ReshapingPass) compileTimePass;

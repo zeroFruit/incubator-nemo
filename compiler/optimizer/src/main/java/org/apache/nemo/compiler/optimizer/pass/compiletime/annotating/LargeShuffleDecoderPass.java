@@ -24,6 +24,7 @@ import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.edge.executionproperty.CommunicationPatternProperty;
 import org.apache.nemo.common.ir.edge.executionproperty.DecoderProperty;
 import org.apache.nemo.common.ir.vertex.IRVertex;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
 
 import java.util.List;
@@ -35,7 +36,7 @@ import java.util.List;
  */
 @Annotates(DecoderProperty.class)
 @Requires(CommunicationPatternProperty.class)
-public final class LargeShuffleDecoderPass extends AnnotatingPass {
+public final class LargeShuffleDecoderPass extends CompileTimePass {
   /**
    * Default constructor.
    */

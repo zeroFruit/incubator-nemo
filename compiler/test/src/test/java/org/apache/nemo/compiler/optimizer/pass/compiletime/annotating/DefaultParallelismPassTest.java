@@ -48,8 +48,8 @@ public class DefaultParallelismPassTest {
   }
 
   @Test
-  public void testAnnotatingPass() {
-    final AnnotatingPass parallelismPass = new DefaultParallelismPass();
+  public void testCompileTimePass() {
+    final CompileTimePass parallelismPass = new DefaultParallelismPass();
     assertTrue(parallelismPass.getExecutionPropertiesToAnnotate().contains(ParallelismProperty.class));
   }
 

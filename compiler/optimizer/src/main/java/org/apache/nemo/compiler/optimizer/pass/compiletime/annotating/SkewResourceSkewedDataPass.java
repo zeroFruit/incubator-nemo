@@ -23,6 +23,7 @@ import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.edge.executionproperty.MetricCollectionProperty;
 import org.apache.nemo.common.ir.vertex.IRVertex;
 import org.apache.nemo.common.ir.vertex.executionproperty.ResourceSkewedDataProperty;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
 
 /**
@@ -34,7 +35,7 @@ import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
  */
 @Annotates(ResourceSkewedDataProperty.class)
 @Requires(MetricCollectionProperty.class)
-public final class SkewResourceSkewedDataPass extends AnnotatingPass {
+public final class SkewResourceSkewedDataPass extends CompileTimePass {
   /**
    * Default constructor.
    */

@@ -30,7 +30,7 @@ import org.apache.nemo.common.ir.vertex.transform.MetricCollectTransform;
 import org.apache.nemo.common.ir.vertex.transform.AggregateMetricTransform;
 import org.apache.nemo.compiler.CompilerTestUtil;
 import org.apache.nemo.common.ir.vertex.executionproperty.ResourceSkewedDataProperty;
-import org.apache.nemo.compiler.optimizer.pass.compiletime.annotating.AnnotatingPass;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.annotating.CompileTimePass;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -69,8 +69,8 @@ public class SkewCompositePassTest {
     dataSkewPass.getPassList().forEach(compileTimePass ->
         prerequisites.addAll(compileTimePass.getPrerequisiteExecutionProperties()));
     dataSkewPass.getPassList().forEach(compileTimePass -> {
-      if (compileTimePass instanceof AnnotatingPass) {
-        prerequisites.removeAll(((AnnotatingPass) compileTimePass).getExecutionPropertiesToAnnotate());
+      if (compileTimePass instanceof CompileTimePass) {
+        prerequisites.removeAll(((CompileTimePass) compileTimePass).getExecutionPropertiesToAnnotate());
       }
     });
     assertEquals(prerequisites, dataSkewPass.getPrerequisiteExecutionProperties());

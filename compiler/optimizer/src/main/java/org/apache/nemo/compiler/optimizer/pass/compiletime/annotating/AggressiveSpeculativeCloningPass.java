@@ -22,13 +22,14 @@ import org.apache.nemo.common.dag.DAG;
 import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.vertex.IRVertex;
 import org.apache.nemo.common.ir.vertex.executionproperty.ClonedSchedulingProperty;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 
 /**
  * Speculative execution. (very aggressive, for unit tests)
  * TODO #200: Maintain Test Passes and Policies Separately
  */
 @Annotates(ClonedSchedulingProperty.class)
-public final class AggressiveSpeculativeCloningPass extends AnnotatingPass {
+public final class AggressiveSpeculativeCloningPass extends CompileTimePass {
   /**
    * Default constructor.
    */

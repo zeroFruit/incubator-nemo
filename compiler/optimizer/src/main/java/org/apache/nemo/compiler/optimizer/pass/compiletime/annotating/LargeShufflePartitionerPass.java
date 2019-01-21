@@ -23,6 +23,7 @@ import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.edge.executionproperty.CommunicationPatternProperty;
 import org.apache.nemo.common.ir.edge.executionproperty.PartitionerProperty;
 import org.apache.nemo.common.ir.vertex.IRVertex;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
 
 import java.util.List;
@@ -36,7 +37,7 @@ import java.util.List;
  */
 @Annotates(PartitionerProperty.class)
 @Requires(CommunicationPatternProperty.class)
-public final class LargeShufflePartitionerPass extends AnnotatingPass {
+public final class LargeShufflePartitionerPass extends CompileTimePass {
   /**
    * Default constructor.
    */

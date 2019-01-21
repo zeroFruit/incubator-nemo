@@ -29,6 +29,7 @@ import org.apache.nemo.common.ir.vertex.OperatorVertex;
 import org.apache.nemo.common.ir.vertex.transform.Transform;
 import org.apache.nemo.common.dag.DAG;
 import org.apache.nemo.common.dag.DAGBuilder;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
 
 import java.util.*;
@@ -41,7 +42,7 @@ import java.util.stream.Collectors;
  * Refer to CommonSubexpressionEliminationPassTest for such cases.
  */
 @Requires(CommunicationPatternProperty.class)
-public final class CommonSubexpressionEliminationPass extends ReshapingPass {
+public final class CommonSubexpressionEliminationPass extends CompileTimePass {
   /**
    * Default constructor.
    */

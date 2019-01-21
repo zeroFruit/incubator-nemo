@@ -23,12 +23,13 @@ import org.apache.nemo.common.dag.DAG;
 import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.edge.executionproperty.DecoderProperty;
 import org.apache.nemo.common.ir.vertex.IRVertex;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 
 /**
  * Pass for initiating IREdge Decoder ExecutionProperty with default dummy coder.
  */
 @Annotates(DecoderProperty.class)
-public final class DefaultEdgeDecoderPass extends AnnotatingPass {
+public final class DefaultEdgeDecoderPass extends CompileTimePass {
 
   private static final DecoderProperty DEFAULT_DECODER_PROPERTY =
       DecoderProperty.of(DecoderFactory.DUMMY_DECODER_FACTORY);

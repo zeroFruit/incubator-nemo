@@ -23,6 +23,7 @@ import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.edge.executionproperty.CommunicationPatternProperty;
 import org.apache.nemo.common.ir.edge.executionproperty.CompressionProperty;
 import org.apache.nemo.common.ir.vertex.IRVertex;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
 
 import java.util.List;
@@ -34,7 +35,7 @@ import java.util.List;
  */
 @Annotates(CompressionProperty.class)
 @Requires(CommunicationPatternProperty.class)
-public final class LargeShuffleCompressionPass extends AnnotatingPass {
+public final class LargeShuffleCompressionPass extends CompileTimePass {
   /**
    * Default constructor.
    */

@@ -26,6 +26,7 @@ import org.apache.nemo.common.ir.vertex.IRVertex;
 import org.apache.nemo.common.ir.vertex.LoopVertex;
 import org.apache.nemo.common.dag.DAG;
 import org.apache.nemo.common.dag.DAGBuilder;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
 
 import java.util.*;
@@ -103,7 +104,7 @@ public final class LoopOptimizations {
    * Pass for Loop Fusion optimization.
    */
   @Requires(CommunicationPatternProperty.class)
-  public static final class LoopFusionPass extends ReshapingPass {
+  public static final class LoopFusionPass extends CompileTimePass {
     /**
      * Default constructor.
      */
@@ -231,7 +232,7 @@ public final class LoopOptimizations {
    * Pass for Loop Invariant Code Motion optimization.
    */
   @Requires(CommunicationPatternProperty.class)
-  public static final class LoopInvariantCodeMotionPass extends ReshapingPass {
+  public static final class LoopInvariantCodeMotionPass extends CompileTimePass {
     /**
      * Default constructor.
      */

@@ -49,8 +49,8 @@ import static org.junit.Assert.assertTrue;
 @PrepareForTest(JobLauncher.class)
 public final class DefaultScheduleGroupPassTest {
   @Test
-  public void testAnnotatingPass() {
-    final AnnotatingPass scheduleGroupPass = new DefaultScheduleGroupPass();
+  public void testCompileTimePass() {
+    final CompileTimePass scheduleGroupPass = new DefaultScheduleGroupPass();
     assertTrue(scheduleGroupPass.getExecutionPropertiesToAnnotate().contains(ScheduleGroupProperty.class));
   }
 

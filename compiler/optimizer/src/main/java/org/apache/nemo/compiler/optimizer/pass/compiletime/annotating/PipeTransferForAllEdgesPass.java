@@ -22,12 +22,13 @@ import org.apache.nemo.common.dag.DAG;
 import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.edge.executionproperty.DataStoreProperty;
 import org.apache.nemo.common.ir.vertex.IRVertex;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 
 /**
  * Annotate 'Pipe' on all edges.
  */
 @Annotates(DataStoreProperty.class)
-public final class PipeTransferForAllEdgesPass extends AnnotatingPass {
+public final class PipeTransferForAllEdgesPass extends CompileTimePass {
   /**
    * Default constructor.
    */

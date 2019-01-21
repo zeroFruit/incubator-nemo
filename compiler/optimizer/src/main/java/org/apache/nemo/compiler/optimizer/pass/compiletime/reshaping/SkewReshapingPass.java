@@ -34,6 +34,7 @@ import org.apache.nemo.common.ir.vertex.OperatorVertex;
 import org.apache.nemo.common.ir.vertex.transform.AggregateMetricTransform;
 import org.apache.nemo.common.ir.vertex.transform.MetricCollectTransform;
 import org.apache.nemo.compiler.optimizer.PairKeyExtractor;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.annotating.Annotates;
 import org.slf4j.Logger;
@@ -56,7 +57,7 @@ import java.util.function.BiFunction;
  * */
 @Annotates(MetricCollectionProperty.class)
 @Requires(CommunicationPatternProperty.class)
-public final class SkewReshapingPass extends ReshapingPass {
+public final class SkewReshapingPass extends CompileTimePass {
   private static final Logger LOG = LoggerFactory.getLogger(SkewReshapingPass.class.getName());
   private static final String ADDITIONAL_OUTPUT_TAG = "DynOptData";
   /**

@@ -26,6 +26,7 @@ import org.apache.nemo.common.ir.edge.executionproperty.CommunicationPatternProp
 import org.apache.nemo.common.ir.vertex.IRVertex;
 import org.apache.nemo.common.ir.vertex.executionproperty.ResourceSiteProperty;
 import org.apache.nemo.common.ir.vertex.executionproperty.ParallelismProperty;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
 import org.apache.commons.math3.optim.BaseOptimizer;
 import org.apache.commons.math3.optim.PointValuePair;
@@ -56,7 +57,7 @@ import java.util.*;
  */
 @Annotates(ResourceSiteProperty.class)
 @Requires(ParallelismProperty.class)
-public final class ResourceSitePass extends AnnotatingPass {
+public final class ResourceSitePass extends CompileTimePass {
 
   // Index of the objective parameter, in the coefficient vector
   private static final int OBJECTIVE_COEFFICIENT_INDEX = 0;

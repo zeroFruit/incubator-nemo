@@ -24,6 +24,7 @@ import org.apache.nemo.common.ir.edge.executionproperty.DataStoreProperty;
 import org.apache.nemo.common.ir.vertex.IRVertex;
 import org.apache.nemo.common.dag.DAG;
 import org.apache.nemo.common.ir.vertex.executionproperty.ResourcePriorityProperty;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
 
 import java.util.List;
@@ -33,7 +34,7 @@ import java.util.List;
  */
 @Annotates(DataStoreProperty.class)
 @Requires(ResourcePriorityProperty.class)
-public final class TransientResourceDataStorePass extends AnnotatingPass {
+public final class TransientResourceDataStorePass extends CompileTimePass {
   /**
    * Default constructor.
    */

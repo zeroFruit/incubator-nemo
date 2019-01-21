@@ -27,6 +27,7 @@ import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.vertex.IRVertex;
 import org.apache.nemo.common.ir.vertex.OperatorVertex;
 import org.apache.nemo.common.ir.vertex.transform.RelayTransform;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
 
 /**
@@ -36,7 +37,7 @@ import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
  * to merge the shuffled data in memory and write to the disk at once.
  */
 @Requires(CommunicationPatternProperty.class)
-public final class LargeShuffleRelayReshapingPass extends ReshapingPass {
+public final class LargeShuffleRelayReshapingPass extends CompileTimePass {
 
   /**
    * Default constructor.

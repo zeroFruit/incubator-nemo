@@ -22,12 +22,13 @@ import org.apache.nemo.common.dag.DAG;
 import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.vertex.IRVertex;
 import org.apache.nemo.common.ir.vertex.executionproperty.ResourceLocalityProperty;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 
 /**
  * Sets {@link ResourceLocalityProperty}.
  */
 @Annotates(ResourceLocalityProperty.class)
-public final class ResourceLocalityPass extends AnnotatingPass {
+public final class ResourceLocalityPass extends CompileTimePass {
 
   /**
    * Constructor.

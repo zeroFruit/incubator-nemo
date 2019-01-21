@@ -23,13 +23,14 @@ import org.apache.nemo.common.dag.DAGBuilder;
 import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.vertex.IRVertex;
 import org.apache.nemo.common.ir.vertex.LoopVertex;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 
 /**
  * Pass for unrolling the loops grouped by the {@link LoopExtractionPass}.
  * It first unrolls the root LoopVertex, which is in the form of linked list, into a straight line in the DAG.
  * Then, it decomposes each of the LoopVertices with the DAG information that each of them contain.
  */
-public final class LoopUnrollingPass extends ReshapingPass {
+public final class LoopUnrollingPass extends CompileTimePass {
   /**
    * Default constructor.
    */

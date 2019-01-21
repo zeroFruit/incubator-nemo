@@ -22,12 +22,13 @@ import org.apache.nemo.common.dag.DAG;
 import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.vertex.IRVertex;
 import org.apache.nemo.common.ir.vertex.executionproperty.ResourceSlotProperty;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 
 /**
  * Sets {@link ResourceSlotProperty}.
  */
 @Annotates(ResourceSlotProperty.class)
-public final class ResourceSlotPass extends AnnotatingPass {
+public final class ResourceSlotPass extends CompileTimePass {
 
   /**
    * Constructor.

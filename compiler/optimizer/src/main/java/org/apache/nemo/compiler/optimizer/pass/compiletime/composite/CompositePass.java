@@ -22,8 +22,9 @@ import org.apache.nemo.common.dag.DAG;
 import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.vertex.IRVertex;
 import org.apache.nemo.common.ir.executionproperty.ExecutionProperty;
+import org.apache.nemo.common.pass.Pass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
-import org.apache.nemo.compiler.optimizer.pass.compiletime.annotating.AnnotatingPass;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.annotating.CompileTimePass;
 
 import java.util.*;
 
@@ -43,8 +44,8 @@ public abstract class CompositePass extends CompileTimePass {
     this.prerequisiteExecutionProperties = new HashSet<>();
     passList.forEach(pass -> prerequisiteExecutionProperties.addAll(pass.getPrerequisiteExecutionProperties()));
     passList.forEach(pass -> {
-      if (pass instanceof AnnotatingPass) {
-        prerequisiteExecutionProperties.removeAll(((AnnotatingPass) pass).getExecutionPropertiesToAnnotate());
+      if (pass instanceof CompileTimePass) {
+        prerequisiteExecutionProperties.removeAll(((CompileTimePass) pass).getExecutionPropertiesToAnnotate());
       }
     });
   }

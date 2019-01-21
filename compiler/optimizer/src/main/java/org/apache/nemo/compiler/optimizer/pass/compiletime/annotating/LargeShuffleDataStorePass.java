@@ -23,6 +23,7 @@ import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.edge.executionproperty.CommunicationPatternProperty;
 import org.apache.nemo.common.ir.edge.executionproperty.DataStoreProperty;
 import org.apache.nemo.common.ir.vertex.IRVertex;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
 
 /**
@@ -31,7 +32,7 @@ import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
  */
 @Annotates(DataStoreProperty.class)
 @Requires(CommunicationPatternProperty.class)
-public final class LargeShuffleDataStorePass extends AnnotatingPass {
+public final class LargeShuffleDataStorePass extends CompileTimePass {
   /**
    * Default constructor.
    */

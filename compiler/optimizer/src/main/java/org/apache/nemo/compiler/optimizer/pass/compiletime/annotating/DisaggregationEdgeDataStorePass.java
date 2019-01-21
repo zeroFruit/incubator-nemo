@@ -22,6 +22,7 @@ import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.edge.executionproperty.DataStoreProperty;
 import org.apache.nemo.common.ir.vertex.IRVertex;
 import org.apache.nemo.common.dag.DAG;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
 
 import java.util.List;
@@ -32,7 +33,7 @@ import java.util.List;
  */
 @Annotates(DataStoreProperty.class)
 @Requires(DataStoreProperty.class)
-public final class DisaggregationEdgeDataStorePass extends AnnotatingPass {
+public final class DisaggregationEdgeDataStorePass extends CompileTimePass {
   /**
    * Default constructor.
    */

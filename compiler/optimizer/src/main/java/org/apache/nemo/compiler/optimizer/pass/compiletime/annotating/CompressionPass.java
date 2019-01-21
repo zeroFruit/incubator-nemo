@@ -22,13 +22,14 @@ import org.apache.nemo.common.dag.DAG;
 import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.edge.executionproperty.CompressionProperty;
 import org.apache.nemo.common.ir.vertex.IRVertex;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 
 
 /**
  * A pass for applying compression algorithm for data flowing between vertices.
  */
 @Annotates(CompressionProperty.class)
-public final class CompressionPass extends AnnotatingPass {
+public final class CompressionPass extends CompileTimePass {
   private final CompressionProperty.Value compression;
 
   /**

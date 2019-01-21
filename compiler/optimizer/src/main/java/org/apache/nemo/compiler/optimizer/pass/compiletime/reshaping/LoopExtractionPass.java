@@ -26,6 +26,7 @@ import org.apache.nemo.common.dag.DAGBuilder;
 import org.apache.nemo.common.ir.vertex.LoopVertex;
 import org.apache.nemo.common.ir.vertex.OperatorVertex;
 import org.apache.nemo.common.ir.vertex.SourceVertex;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
 
 import java.util.*;
@@ -37,7 +38,7 @@ import java.util.*;
  * other iterative computations.
  */
 @Requires(CommunicationPatternProperty.class)
-public final class LoopExtractionPass extends ReshapingPass {
+public final class LoopExtractionPass extends CompileTimePass {
   /**
    * Default constructor.
    */

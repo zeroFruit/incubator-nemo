@@ -22,12 +22,13 @@ import org.apache.nemo.common.dag.DAG;
 import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.edge.executionproperty.DataStoreProperty;
 import org.apache.nemo.common.ir.vertex.IRVertex;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 
 /**
  * Edge data store pass to process inter-stage memory store edges.
  */
 @Annotates(DataStoreProperty.class)
-public final class DefaultDataStorePass extends AnnotatingPass {
+public final class DefaultDataStorePass extends CompileTimePass {
   /**
    * Default constructor.
    */

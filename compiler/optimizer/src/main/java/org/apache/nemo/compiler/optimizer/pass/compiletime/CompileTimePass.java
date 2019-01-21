@@ -23,7 +23,10 @@ import org.apache.nemo.common.ir.vertex.IRVertex;
 import org.apache.nemo.common.dag.DAG;
 import org.apache.nemo.common.ir.executionproperty.ExecutionProperty;
 import org.apache.nemo.common.pass.Pass;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.annotating.Annotates;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Function;
 
@@ -32,9 +35,28 @@ import java.util.function.Function;
  * It is a function that takes an original DAG to produce a processed DAG, after an optimization.
  */
 public abstract class CompileTimePass extends Pass implements Function<DAG<IRVertex, IREdge>, DAG<IRVertex, IREdge>> {
+  private final Set<Class<? extends ExecutionProperty>> executionPropertiesToAnnotate;
+  private final Set<Class<? extends ExecutionProperty>> prerequisiteExecutionProperties;
+
   /**
-   * Getter for prerequisite execution properties.
-   * @return set of prerequisite execution properties.
+   * Constructor.
+   * @param cls the pass class.
    */
-  public abstract Set<Class<? extends ExecutionProperty>> getPrerequisiteExecutionProperties();
+  public CompileTimePass(final Class<? extends CompileTimePass> cls) {
+    final Requires requires = cls.getAnnotation(Requires.class);
+    this.prerequisiteExecutionProperties = requires == null
+      ? new HashSet<>() : new HashSet<>(Arrays.asList(requires.value()));
+
+    final Annotates annotates = cls.getAnnotation(Annotates.class);
+    this.executionPropertiesToAnnotate = annotates == null
+      ? new HashSet<>() : new HashSet<>(Arrays.asList(annotates.value()));
+  }
+
+  public Set<Class<? extends ExecutionProperty>> getExecutionPropertiesToAnnotate() {
+    return executionPropertiesToAnnotate;
+  }
+
+  public Set<Class<? extends ExecutionProperty>> getPrerequisiteExecutionProperties() {
+    return prerequisiteExecutionProperties;
+  }
 }

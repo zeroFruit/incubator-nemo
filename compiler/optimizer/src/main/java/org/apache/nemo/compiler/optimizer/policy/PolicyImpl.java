@@ -25,8 +25,7 @@ import org.apache.nemo.common.exception.CompileTimeOptimizationException;
 import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.vertex.IRVertex;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
-import org.apache.nemo.compiler.optimizer.pass.compiletime.annotating.AnnotatingPass;
-import org.apache.nemo.compiler.optimizer.pass.compiletime.reshaping.ReshapingPass;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.annotating.CompileTimePass;
 import org.apache.nemo.runtime.common.optimizer.pass.runtime.RuntimePass;
 import org.apache.reef.tang.Injector;
 import org.slf4j.Logger;
@@ -78,8 +77,8 @@ public final class PolicyImpl implements Policy {
         LOG.info("Apply {} to the DAG", passToApply.getClass().getSimpleName());
         // Apply the pass to the DAG.
         processedDAG = passToApply.apply(dag);
-        // Ensure AnnotatingPass and ReshapingPass functions as intended.
-        if ((passToApply instanceof AnnotatingPass && !checkAnnotatingPass(dag, processedDAG))
+        // Ensure CompileTimePass and ReshapingPass functions as intended.
+        if ((passToApply instanceof CompileTimePass && !checkCompileTimePass(dag, processedDAG))
             || (passToApply instanceof ReshapingPass && !checkReshapingPass(dag, processedDAG))) {
           throw new CompileTimeOptimizationException(passToApply.getClass().getSimpleName()
               + " is implemented in a way that doesn't follow its original intention of annotating or reshaping. "
@@ -106,7 +105,7 @@ public final class PolicyImpl implements Policy {
    * @param after DAG after modification.
    * @return true if there is no problem, false if there is a problem.
    */
-  private static Boolean checkAnnotatingPass(final DAG<IRVertex, IREdge> before, final DAG<IRVertex, IREdge> after) {
+  private static Boolean checkCompileTimePass(final DAG<IRVertex, IREdge> before, final DAG<IRVertex, IREdge> after) {
     final Iterator<IRVertex> beforeVertices = before.getTopologicalSort().iterator();
     final Iterator<IRVertex> afterVertices = after.getTopologicalSort().iterator();
     while (beforeVertices.hasNext() && afterVertices.hasNext()) {

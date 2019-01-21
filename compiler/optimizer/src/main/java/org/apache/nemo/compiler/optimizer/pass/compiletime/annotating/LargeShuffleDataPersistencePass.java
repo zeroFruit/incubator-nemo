@@ -23,6 +23,7 @@ import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.edge.executionproperty.DataFlowProperty;
 import org.apache.nemo.common.ir.edge.executionproperty.DataPersistenceProperty;
 import org.apache.nemo.common.ir.vertex.IRVertex;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
 
 /**
@@ -31,7 +32,7 @@ import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
  */
 @Annotates(DataPersistenceProperty.class)
 @Requires(DataFlowProperty.class)
-public final class LargeShuffleDataPersistencePass extends AnnotatingPass {
+public final class LargeShuffleDataPersistencePass extends CompileTimePass {
 
   /**
    * Default constructor.

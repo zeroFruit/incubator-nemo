@@ -27,6 +27,7 @@ import org.apache.nemo.common.ir.edge.executionproperty.CommunicationPatternProp
 import org.apache.nemo.common.ir.vertex.IRVertex;
 import org.apache.nemo.common.ir.edge.executionproperty.DataFlowProperty;
 import org.apache.nemo.common.ir.vertex.executionproperty.ScheduleGroupProperty;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
 import org.apache.commons.lang3.mutable.MutableInt;
 
@@ -53,7 +54,7 @@ import java.util.*;
  */
 @Annotates(ScheduleGroupProperty.class)
 @Requires({CommunicationPatternProperty.class, DataFlowProperty.class})
-public final class DefaultScheduleGroupPass extends AnnotatingPass {
+public final class DefaultScheduleGroupPass extends CompileTimePass {
 
   private final boolean allowBroadcastWithinScheduleGroup;
   private final boolean allowShuffleWithinScheduleGroup;

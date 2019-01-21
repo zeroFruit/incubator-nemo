@@ -25,6 +25,7 @@ import org.apache.nemo.common.ir.vertex.IRVertex;
 import org.apache.nemo.common.ir.vertex.SourceVertex;
 import org.apache.nemo.common.dag.DAG;
 import org.apache.nemo.common.ir.vertex.executionproperty.ParallelismProperty;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
 
 import java.util.List;
@@ -34,7 +35,7 @@ import java.util.List;
  */
 @Annotates(ParallelismProperty.class)
 @Requires(CommunicationPatternProperty.class)
-public final class DefaultParallelismPass extends AnnotatingPass {
+public final class DefaultParallelismPass extends CompileTimePass {
   private final int desiredSourceParallelism;
   // we decrease the number of parallelism by this number on each shuffle boundary.
   private final int shuffleDecreaseFactor;

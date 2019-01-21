@@ -50,10 +50,10 @@ public class DefaultEdgeCoderPassTest {
   }
 
   @Test
-  public void testAnnotatingPass() {
-    final AnnotatingPass encoderPass = new DefaultEdgeEncoderPass();
+  public void testCompileTimePass() {
+    final CompileTimePass encoderPass = new DefaultEdgeEncoderPass();
     assertTrue(encoderPass.getExecutionPropertiesToAnnotate().contains(EncoderProperty.class));
-    final AnnotatingPass decoderPass = new DefaultEdgeDecoderPass();
+    final CompileTimePass decoderPass = new DefaultEdgeDecoderPass();
     assertTrue(decoderPass.getExecutionPropertiesToAnnotate().contains(DecoderProperty.class));
   }
 

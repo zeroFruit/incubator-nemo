@@ -23,6 +23,7 @@ import org.apache.nemo.common.ir.edge.IREdge;
 import org.apache.nemo.common.ir.edge.executionproperty.CompressionProperty;
 import org.apache.nemo.common.ir.edge.executionproperty.DecompressionProperty;
 import org.apache.nemo.common.ir.vertex.IRVertex;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
 
 
@@ -32,7 +33,7 @@ import org.apache.nemo.compiler.optimizer.pass.compiletime.Requires;
  */
 @Annotates(CompressionProperty.class)
 @Requires(CompressionProperty.class)
-public final class DecompressionPass extends AnnotatingPass {
+public final class DecompressionPass extends CompileTimePass {
 
   /**
    * Constructor.

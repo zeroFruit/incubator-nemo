@@ -27,6 +27,7 @@ import org.apache.nemo.common.ir.edge.executionproperty.CommunicationPatternProp
 import org.apache.nemo.common.ir.edge.executionproperty.DataSkewMetricProperty;
 import org.apache.nemo.common.ir.vertex.IRVertex;
 import org.apache.nemo.common.ir.vertex.executionproperty.ParallelismProperty;
+import org.apache.nemo.compiler.optimizer.pass.compiletime.CompileTimePass;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +36,7 @@ import java.util.Map;
  * Pass for initiating IREdge Metric ExecutionProperty with default key range.
  */
 @Annotates(DataSkewMetricProperty.class)
-public final class DefaultMetricPass extends AnnotatingPass {
+public final class DefaultMetricPass extends CompileTimePass {
   /**
    * Default constructor.
    */
